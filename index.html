@@ -190,7 +190,7 @@
         function appendToLog(data, text) {
             var outputText = '';
             var finishTime = new Date().toLocaleString();
-            if (data.compile_output) {
+            if (data.compile_output && data.stdout === null) {
                 outputText =
                     '<pre><span style="color: #FF0000">' +
                     data.compile_output +
