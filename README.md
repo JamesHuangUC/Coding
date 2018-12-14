@@ -14,3 +14,7 @@ Clean, powerful online IDE, which supports various languages:
 - Pascal
 - Ruby
 - Python
+
+# Demo
+
+[!demo](https://github.com/JamesHuangUC/Coding/blob/master/Demo.gif)
