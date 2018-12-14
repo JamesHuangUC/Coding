@@ -17,4 +17,4 @@ Clean, powerful online IDE, which supports various languages:
 
 # Demo
 
-[!demo](https://github.com/JamesHuangUC/Coding/blob/master/Demo.gif)
+![demo](https://github.com/JamesHuangUC/Coding/blob/master/Demo.gif)
