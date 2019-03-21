@@ -1,0 +1,19 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
+
+const ChallengesList = props => {
+  return (
+    <ListGroup>
+      {props.challenges.map((challenge, i) => {
+        return (
+          <ListGroupItem key={i}>
+            <Link to={`/rooms/${challenge.id}`}>{challenge.title}</Link>
+          </ListGroupItem>
+        );
+      })}
+    </ListGroup>
+  );
+};
+
+export default ChallengesList;
