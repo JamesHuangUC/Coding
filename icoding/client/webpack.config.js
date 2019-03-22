@@ -34,8 +34,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-        API_HOST: JSON.stringify("https://icoding.herokuapp.com"),
-        // API_HOST: JSON.stringify("http://localhost:3000"),
+        // API_HOST: JSON.stringify("https://icoding.herokuapp.com"),
+        API_HOST: JSON.stringify("http://localhost:3000"),
         API_CODING: JSON.stringify("https://coding-api.cmps.app")
       }
     }),
@@ -45,7 +45,7 @@ module.exports = {
     })
   ],
   output: {
-//    publicPath: "/"
-    publicPath: "/coding/"
+//    publicPath: "/" //development env
+    publicPath: "/coding/" //production env
   }
 };

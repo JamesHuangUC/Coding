@@ -1,12 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Form, Button } from "react-bootstrap";
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Form, Button } from 'react-bootstrap';
 // import faker from "faker";
-import * as challengesActions from "../../actions/challengesActions";
-import * as userActions from "../../actions/userActions.js";
-import ChallengesList from "../presentational/ChallengesList";
-import ChooseUserName from "../presentational/ChooseUserName";
+import * as challengesActions from '../../actions/challengesActions';
+import * as userActions from '../../actions/userActions.js';
+import ChallengesList from '../presentational/ChallengesList';
+import ChooseUserName from '../presentational/ChooseUserName';
 
 class HomePage extends React.Component {
   constructor(...args) {
@@ -60,49 +60,58 @@ class HomePage extends React.Component {
     return (
       <div
         style={{
-          margin: 0,
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)"
+          background:
+            'radial-gradient(rgba(9,156,236,.87) 0, rgba(6, 109, 165, .87))',
+          height: '100vh'
         }}
-        className="text-center"
       >
-        <p className="h3 mb-3 font-weight-normal">Coding</p>
-        <Form
-          noValidate
-          validated={validated}
-          onSubmit={e => this.handleSubmit(e)}
+        <div
+          style={{
+            margin: 0,
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+          }}
+          className="text-center"
         >
-          <Form.Group md="4" controlId="validationUser">
-            {/*<Form.Label>Username</Form.Label>*/}
-            <Form.Control
-              required
-              type="text"
-              placeholder="Username"
-              // id="username"
-              // defaultValue={faker.internet.userName()}
-            />
-            {/*<Form.Control.Feedback>Looks good!</Form.Control.Feedback>*/}
-          </Form.Group>
-          <Form.Group md="4" controlId="validationRoom">
-            {/*<Form.Label>Room name</Form.Label>*/}
-            <Form.Control
-              required
-              type="text"
-              placeholder="Room name"
-              // id="roomname"
-              // defaultValue="Otto"
-            />
-            {/*<Form.Control.Feedback>Looks good!</Form.Control.Feedback>*/}
-          </Form.Group>
+          <p className="h3 mb-3 font-weight-normal" style={{ color: '#FFF' }}>
+            Coding
+          </p>
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={e => this.handleSubmit(e)}
+          >
+            <Form.Group md="4" controlId="validationUser">
+              {/*<Form.Label>Username</Form.Label>*/}
+              <Form.Control
+                required
+                type="text"
+                placeholder="Username"
+                // id="username"
+                // defaultValue={faker.internet.userName()}
+              />
+              {/*<Form.Control.Feedback>Looks good!</Form.Control.Feedback>*/}
+            </Form.Group>
+            <Form.Group md="4" controlId="validationRoom">
+              {/*<Form.Label>Room name</Form.Label>*/}
+              <Form.Control
+                required
+                type="text"
+                placeholder="Room name"
+                // id="roomname"
+                // defaultValue="Otto"
+              />
+              {/*<Form.Control.Feedback>Looks good!</Form.Control.Feedback>*/}
+            </Form.Group>
 
-          <Button type="submit" variant="primary" size="lg" block>
-            Enter
-          </Button>
-        </Form>
+            <Button type="submit" variant="primary" size="lg" block>
+              Enter
+            </Button>
+          </Form>
 
-        {/*<Form>
+          {/*<Form>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Control type="text" placeholder="Username" />
           </Form.Group>
@@ -116,6 +125,7 @@ class HomePage extends React.Component {
           </Button>
         </Form>
       */}
+        </div>
       </div>
     );
   }
@@ -171,7 +181,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

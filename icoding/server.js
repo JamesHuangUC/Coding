@@ -26,12 +26,13 @@ app.get("/api/v1/challenges", (req, res, next) => {
     res.json(challenges);
 });
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "client/dist")));
-    app.get("*", function(req, res) {
-        res.sendFile(path.join(__dirname, "client/dist", "index.html"));
-    });
-}
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static(path.join(__dirname, "client/dist")));
+//     app.get("*", function(req, res) {
+//         res.sendFile(path.join(__dirname, "client/dist", "index.html"));
+//     });
+    app.use('/coding', express.static(path.join(__dirname, "client/coding"))); //production env for local server
+// }
 
 const server = app.listen(port, function(err) {
     if (err) {
@@ -50,6 +51,9 @@ function generateMessage(from, text) {
 }
 
 const io = socketIO(server);
+
+io.set('origins', 'http://localhost:3000 http://localhost:8080');
+// io.set('origins', 'https://icoding.herokuapp.com:* https://www.zihuahuang.com:*');
 
 io.on("connection", socket => {
     console.log("a user connected");
