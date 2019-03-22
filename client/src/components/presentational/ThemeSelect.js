@@ -7,21 +7,7 @@ const ThemeSelect = props => {
   }
 
   function renderModeSelect() {
-    const themes = [
-      "eclipse",
-      "monokai",
-      "bespin",
-      "3024-day",
-      "3024-night",
-      "cobalt",
-      "dracula",
-      "isotope",
-      "duotone-light",
-      "icecoder",
-      "material",
-      "midnight",
-      "solarized"
-    ];
+    const themes = ["vs-dark", "vs-light"];
     return themes.map((theme, i) => {
       if (theme === props.theme) {
         return (

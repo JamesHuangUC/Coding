@@ -14,7 +14,8 @@ const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>{routes}</Router>
+        {/*<Router>{routes}</Router>*/}
+        <Router basename={"/coding"}>{routes}</Router>
     </Provider>,
     document.getElementById("root")
 );
