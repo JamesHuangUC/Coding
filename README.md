@@ -1,8 +1,10 @@
 # Coding
 
-Clean, powerful online pair programming platform for anyone who loves coding.
+Clean, powerful pair programming platform for anyone who loves coding.
 
-Users can type code, execute it and get the result with runtime. In addition, it supports syntax highlighting, passing input, creating a custom room, sending/receiving messages, and coding with other users in real time.
+Users can type code, compile, execute it, and get the result with runtime. In addition, it supports syntax highlighting, autocomplete, passing custom input, creating a custom room, sending/receiving messages with users in the same room.
+
+Start coding in real time.
 
 ## Languages Supported
 
@@ -26,5 +28,4 @@ Users can type code, execute it and get the result with runtime. In addition, it
 * Express
 * Socket.IO
 * Monaco Editor
-* Judge0 API
 * Docker
