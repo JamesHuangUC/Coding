@@ -37,14 +37,17 @@
     "faker": "^4.1.0",
     "file-saver": "^2.0.1",
     "moment": "^2.24.0",
+    "monaco-languageclient": "^0.6.3",
     "prop-types": "^15.7.2",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-codemirror": "^1.0.0",
-    "react-monaco-editor": "^0.25.1",
+    "react-monaco-editor": "^0.18.0",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
+    "reconnecting-websocket": "^4.1.10",
     "redux": "^4.0.1",
     "redux-promise": "^0.6.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "vscode-ws-jsonrpc": "0.0.2-2"
   }
 }

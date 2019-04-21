@@ -47,5 +47,9 @@ module.exports = {
   output: {
 //    publicPath: "/" //development env
     publicPath: "/coding/" //production env
+  },
+  node: {
+    dns: "mock",
+    net: "mock"
   }
 };

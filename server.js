@@ -55,6 +55,11 @@ const io = socketIO(server);
 io.set('origins', 'http://localhost:3000 http://localhost:8080');
 // io.set('origins', 'https://icoding.herokuapp.com:* https://www.zihuahuang.com:*');
 
+var users = {};
+var colors = ["#DDFFAA", "#95E0C8", "#E18060", "#FFCBA4"];
+var tempUser;
+var tempColor;
+
 io.on("connection", socket => {
     console.log("a user connected");
 
@@ -68,6 +73,22 @@ io.on("connection", socket => {
         console.log(data);
         socket.broadcast.to(data.room).emit("load users and code");
         socket.broadcast.to(data.room).emit("new user join", data.user);
+
+        if (Object.keys(users).length === 0 || !(data.room in users)) {
+            users[data.room] = {};
+        }
+        if (
+            Object.keys(users[data.room]).length === 0 ||
+            !(data.user in users[data.room])
+        ) {
+            users[data.room][data.user] = {};
+            users[data.room][data.user] = {};
+        }
+        users[data.room][data.user].user = tempUser = data.user;
+        users[data.room][data.user].color = data.color = tempColor =
+            colors[Math.floor(Math.random() * colors.length)];
+        socket.emit("userdata", Object.values(users[data.room]));
+        socket.broadcast.to(data.room).emit("connected user and color", data);
     });
 
     socket.on("leave room", function(data) {
@@ -75,6 +96,17 @@ io.on("connection", socket => {
             .to(data.room)
             .emit("user left room", { user: data.user });
         socket.leave(data.room);
+
+        console.log("leave", data);
+        if (
+            Object.keys(users).length !== 0 &&
+            typeof users[data.room][data.user] !== "undefined"
+        ) {
+            socket.broadcast
+                .to(data.room)
+                .emit("exit", users[data.room][data.user].user);
+            delete users[data.room][data.user];
+        }
     });
 
     socket.on("coding event", function(data) {
@@ -99,5 +131,32 @@ io.on("connection", socket => {
             "toClientMessage",
             generateMessage(message.userName, message.text)
         );
+    });
+
+    socket.on("selection", function(data) {
+        //Content Select Or Cursor Change Event
+        if (typeof users[data.room][data.user] === "undefined") {
+            data.color = tempColor;
+        } else {
+            data.color = users[data.room][data.user].color;
+        }
+        socket.broadcast.to(data.room).emit("selection", data);
+    });
+
+    socket.on("key", function(data) {
+        //Getting code when others editing
+        // console.log("kd", data);
+        // console.log("tu", tempUser);
+        // if (Object.keys(users[data.room]).length !== 0 && tempUser in users[data.room]) {
+        if (Object.keys(users[data.room]).length !== 0) {
+            // data.user = users[data.room][tempUser].user;
+            socket.broadcast.to(data.room).emit("key", data);
+        }
+        // }
+    });
+
+    socket.on("filedata", function(data) {
+        //Getting code when connected
+        socket.broadcast.to(data.room).emit("resetdata", data.code);
     });
 });
