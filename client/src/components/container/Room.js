@@ -551,18 +551,18 @@ class Room extends React.Component {
     switch (this.state.language) {
       case "java":
         // return "ws://localhost:3001/sampleServer";
-        return "wss://java-monaco.herokuapp.com/sampleServer";
+        return "wss://java-coding.herokuapp.com/sampleServer";
       case "c":
-        return "wss://cpp-monaco.herokuapp.com/sampleServer";
+        return "wss://cpp-coding.herokuapp.com/sampleServer";
       // return "ws://localhost:3000/sampleServer";
       case "cpp":
-        return "wss://cpp-monaco.herokuapp.com/sampleServer";
+        return "wss://cpp-coding.herokuapp.com/sampleServer";
       // return "ws://localhost:3000/sampleServer";
       case "python":
-        return "wss://python-monaco.herokuapp.com/sampleServer";
+        return "wss://python-coding.herokuapp.com/sampleServer";
       // return "ws://localhost:3000/sampleServer";
       case "javascript":
-        return "your/language-server";
+        return "wss://javascript/coding";
     }
   }
 
