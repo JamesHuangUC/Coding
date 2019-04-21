@@ -28,4 +28,5 @@ Start coding in real time.
 * Express
 * Socket.IO
 * Monaco Editor
+* Language Server Protocol
 * Docker
