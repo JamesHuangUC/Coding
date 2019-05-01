@@ -505,6 +505,15 @@ class Room extends React.Component {
             `file:///app/workspace/jdt.ls-java-project/src/Main-${new Date().getTime()}.py`
           )
         );
+      } else if (this.state.language === "ruby") {
+        indexModel = monaco.editor.createModel(
+          this.state.code,
+          undefined,
+          monaco.Uri.parse(
+            // `file:///Users/zhuang/eclipse-workspace/Test001/src/Main-${new Date().getTime()}.rb`
+            `file:///app/workspace/jdt.ls-java-project/src/Main-${new Date().getTime()}.rb`
+          )
+        );
       } else {
         indexModel = monaco.editor.createModel(
           this.state.code,
@@ -560,6 +569,9 @@ class Room extends React.Component {
       // return "ws://localhost:3000/sampleServer";
       case "python":
         return "wss://python-coding.herokuapp.com/sampleServer";
+      // return "ws://localhost:3000/sampleServer";
+      case "ruby":
+        return "wss://ruby-coding.herokuapp.com/sampleServer";
       // return "ws://localhost:3000/sampleServer";
       case "javascript":
         return "wss://javascript/coding";
