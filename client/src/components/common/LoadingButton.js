@@ -82,6 +82,10 @@ function getResult(code, language, input, passOutput) {
       languageId = 38;
       codeTemplate = 'puts "Hello World"';
       break;
+    case "rust":
+      languageId = 42;
+      codeTemplate = 'fn main() {\r\n    println!("Hello World");\r\n}';
+      break;
     default:
       languageId = 43; //PlainText
       codeTemplate = "Hello World";

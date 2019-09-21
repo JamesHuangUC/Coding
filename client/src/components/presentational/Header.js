@@ -35,6 +35,7 @@ const Header = props => {
       ocaml: "Ocaml",
       pascal: "Pascal",
       ruby: "Ruby",
+      rust: "Rust",
       plaintext: "PlainText",
       python: "Python"
     };
