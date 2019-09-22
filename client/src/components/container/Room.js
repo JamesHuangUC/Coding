@@ -142,7 +142,7 @@ class Room extends React.Component {
 
   editorDidMount(editor, monaco) {
     myeditor = editor;
-  }  
+  }
 
   componentDidMount() {
     const user = sessionStorage.currentUser || this.props.currentUser;
@@ -328,9 +328,9 @@ class Room extends React.Component {
     style.type = "text/css";
     style.innerHTML += "." + id + " { background-color:" + color + "}\n"; //Selection Design
     style.innerHTML += `
-    .${id}one { 
+    .${id}one {
         background: ${color};
-        width:2px !important 
+        width:2px !important
     }`; //cursor Design
     document.getElementsByTagName("head")[0].appendChild(style);
   }
@@ -523,6 +523,15 @@ class Room extends React.Component {
             `file:///app/workspace/jdt.ls-java-project/src/Main-${new Date().getTime()}.go`
           )
         );
+      } else if (this.state.language === "rust") {
+        indexModel = monaco.editor.createModel(
+          this.state.code,
+          undefined,
+          monaco.Uri.parse(
+            // `file:///Users/zhuang/eclipse-workspace/Test001/src/Main-${new Date().getTime()}.go`
+            `file:///app/workspace/jdt.ls-java-project/src/Main-${new Date().getTime()}.rs`
+          )
+        );
       } else {
         indexModel = monaco.editor.createModel(
           this.state.code,
@@ -584,6 +593,9 @@ class Room extends React.Component {
       // return "ws://localhost:3000/sampleServer";
       case "go":
         return "wss://go-coding.herokuapp.com/sampleServer";
+      // return "ws://localhost:3000/sampleServer";
+      case "rust":
+        return "wss://rust-coding.herokuapp.com/sampleServer";
       // return "ws://localhost:3000/sampleServer";
       case "javascript":
         return "wss://javascript/coding";
