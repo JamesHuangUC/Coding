@@ -528,17 +528,41 @@ class Room extends React.Component {
           this.state.code,
           undefined,
           monaco.Uri.parse(
-            // `file:///Users/zhuang/eclipse-workspace/Test001/src/Main-${new Date().getTime()}.go`
+            // `file:///Users/zhuang/eclipse-workspace/Test001/src/Main-${new Date().getTime()}.rs`
             `file:///app/workspace/jdt.ls-java-project/src/Main-${new Date().getTime()}.rs`
           )
         );
-      } else {
+      } else if (this.state.language === "javascript") {
         indexModel = monaco.editor.createModel(
           this.state.code,
           undefined,
           monaco.Uri.parse(
             // `file:///Users/zhuang/eclipse-workspace/Test001/src/Main-${new Date().getTime()}.js`
             `file:///app/workspace/jdt.ls-java-project/src/Main-${new Date().getTime()}.js`
+            // `inmemory://model.json`
+          )
+        );
+      } else {
+        let extension;
+        if (this.state.language === "shell") {
+          extension = ".sh";
+        } else if (this.state.language === "csharp") {
+          extension = ".cs";
+        } else if (this.state.language === "haskell") {
+          extension = ".hs";
+        } else if (this.state.language === "ocaml") {
+          extension = ".ml";
+        } else if (this.state.language === "pascal") {
+          extension = ".pas";
+        } else if (this.state.language === "plainText") {
+          extension = ".txt";
+        }
+        indexModel = monaco.editor.createModel(
+          this.state.code,
+          undefined,
+          monaco.Uri.parse(
+            // `file:///Users/zhuang/eclipse-workspace/Test001/src/Main-${new Date().getTime()}.js`
+            `file:///app/workspace/jdt.ls-java-project/src/Main-${new Date().getTime()}${extension}`
             // `inmemory://model.json`
           )
         );
