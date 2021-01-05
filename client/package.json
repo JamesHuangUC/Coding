@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@skidding/react-codemirror": "^1.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "codemirror": "^5.44.0",
     "faker": "^4.1.0",
     "file-saver": "^2.0.1",
